@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UniqueUsername {
-    String message() default "{br.edu.utfpr.pb.pw25s.server.user.username.constraints.UniquyeUsername.message}";
+    String message() default "{br.edu.utfpr.pb.pw25s.server.user.username.constraints.UniqueUsername.message}";
 
     Class<?>[] groups() default {};
 

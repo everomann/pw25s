@@ -19,18 +19,20 @@ public class UserController {
     private final ModelMapper modelMapper;
 
     public UserController(UserService userService,
-                          ModelMapper modelMapper){
+                          ModelMapper modelMapper) {
         this.userService = userService;
         this.modelMapper = modelMapper;
     }
 
     @PostMapping
-    public GenericResponse createUser(@Valid @RequestBody UserDTO user){
+    public GenericResponse createUser(@Valid @RequestBody UserDTO user) {
         User userEntity = modelMapper.map(user, User.class);
         userService.save(userEntity);
 
         GenericResponse genericResponse = new GenericResponse();
-        genericResponse.setMessage("Usuario Salvo");
+        genericResponse.setMessage("User saved.");
         return genericResponse;
     }
+
 }
+
