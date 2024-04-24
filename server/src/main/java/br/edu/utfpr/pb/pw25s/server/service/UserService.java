@@ -22,4 +22,13 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return this.userRepository.save(user);
     }
+
+    public Long getUserIdByUsername(String username) {
+        User user = userRepository.findUserByUsername(username);
+        if (user != null) {
+            return user.getId();
+        } else {
+            return 0L;
+        }
+    }
 }

@@ -19,3 +19,27 @@ spring:
       on-profile: dev
   datasource:
     url: jdbc:h2:mem:pw25s-dev
+
+#    ---------------- test ----------------
+#
+#server:
+#  port: 8025
+#spring:
+#  profiles:
+#    active: test
+#  jpa:
+#    properties:
+#      javax:
+#        persistence:
+#          validation:
+#            mode: none
+#      hibernate:
+#        format_sql: false
+#    show-sql: true
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: test
+#  datasource:
+#    url: jdbc:h2:mem:pw25s-test

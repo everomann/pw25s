@@ -30,7 +30,7 @@ public class ProductServiceImpl extends CrudServiceImpl<Product, Long>
     }
 
     @Transactional(readOnly = true)
-    public List<ProductDTO> listProductsByCategory(Long categoryId) {
+    public List<ProductDTO> findProductsByCategory(Long categoryId) {
         List<Product> products = productRepository.findByCategoryId(categoryId);
         return products.stream()
                 .map(ProductDTO::fromProduct)
