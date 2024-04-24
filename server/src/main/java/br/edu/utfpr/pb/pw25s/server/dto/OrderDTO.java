@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 public class OrderDTO {
@@ -16,7 +16,7 @@ public class OrderDTO {
     private BigDecimal totalPrice;
 
     @NotNull
-    private LocalDateTime orderDateTime;
+    private Date orderDate;
 
     private User user;
 }

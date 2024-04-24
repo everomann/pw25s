@@ -5,8 +5,9 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class Order {
     private BigDecimal totalPrice;
 
     @NotNull
-    private LocalDateTime orderDateTime;
+    private Date orderDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")

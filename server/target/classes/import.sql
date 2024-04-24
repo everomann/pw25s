@@ -12,14 +12,16 @@ INSERT INTO tb_product_images (image_url, product_id) VALUES ('url2', 1)
 INSERT INTO tb_product_images (image_url, product_id) VALUES ('url3', 2)
 INSERT INTO tb_product_images (image_url, product_id) VALUES ('url4', 2)
 
---INSERT INTO tb_order (total_price,order_date_time, user_id) VALUES (200.00, , 1)
+INSERT INTO tb_order (total_price,order_date, user_id) VALUES (200.00, '2024-04-23 12:36:21.875' , 1)
+INSERT INTO tb_order (total_price,order_date, user_id) VALUES (150.00, '2024-04-23 11:56:21.875' , 2)
 
---INSERT INTO tb_order_item (quantity, price, order_id, product_id) VALUES(2,99.90, 1, 1)
-
-
-
-
+INSERT INTO tb_order_item (quantity, price, order_id, product_id) VALUES(2,99.90, 1, 1)
+INSERT INTO tb_order_item (quantity, price, order_id, product_id) VALUES(4,499.90, 2, 2)
 
 
 
---INSERT INTO () VALUES ()
+
+
+
+
+----INSERT INTO () VALUES ()
