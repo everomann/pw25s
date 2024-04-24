@@ -40,17 +40,12 @@ public class ProductController extends CrudController<Product, ProductDTO, Long>
     }
 
     @GetMapping("/category/{categoryId}")
-    public ResponseEntity<List<ProductDTO>> getProductsByCategory(@PathVariable Long categoryId) {
-        List<ProductDTO> products = productService.listProductsByCategory(categoryId);
+    public ResponseEntity<List<ProductDTO>> listProductsByCategory(@PathVariable Long categoryId) {
+        List<ProductDTO> products = productService.findProductsByCategory(categoryId);
         if (!products.isEmpty()) {
             return ResponseEntity.ok(products);
         } else {
             return ResponseEntity.noContent().build();
         }
     }
-
-
-
-
-
 }
