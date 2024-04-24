@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.pw25s.server.dto;
 
+import br.edu.utfpr.pb.pw25s.server.model.Product;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -20,4 +21,16 @@ public class ProductDTO {
     private BigDecimal price;
 
     private CategoryDTO category;
+
+
+    public static ProductDTO fromProduct(Product product) {
+        ProductDTO dto = new ProductDTO();
+        dto.setId(product.getId());
+        dto.setName(product.getName());
+        dto.setDescription(product.getDescription());
+        dto.setPrice(product.getPrice());
+        dto.setCategory(CategoryDTO.fromCategory(product.getCategory()));
+
+        return dto;
+    }
 }
