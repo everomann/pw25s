@@ -33,14 +33,40 @@ const CartPage: React.FC = () => {
             CartService.removeFromCart(productId);
             setCartItems(CartService.getCartItems());
             setIsRemoveItemAlertOpen(false);
+            toast({
+                description: "Item Removido",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            });
         }
     };
 
     const handleClearCart = () => {
-        CartService.clearCart();
-        setCartItems(CartService.getCartItems());
-        setIsClearCartAlertOpen(false);
+        if (cartItems.length === 0) {
+            setIsClearCartAlertOpen(false); // Fecha o AlertDialog sem fazer nada
+            toast({
+                description: "O carrinho já está vazio.",
+                status: 'info',
+                duration: 3000,
+                isClosable: true,
+            });
+        } else {
+            CartService.clearCart();
+            setCartItems([]);
+            setIsClearCartAlertOpen(false);
+            toast({
+                description: "Todos os itens Removidos",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
     };
+    
+
+
+
 
     const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -49,10 +75,9 @@ const CartPage: React.FC = () => {
             navigate(`/pay`);
         } else {
             toast({
-                title: 'Aviso.',
                 description: "Faça login para continuar.",
                 status: 'info',
-                duration: 1000,
+                duration: 3000,
                 isClosable: true,
             });
             navigate(`/login`);

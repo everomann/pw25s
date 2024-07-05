@@ -43,61 +43,73 @@ export function LoginPage() {
     };
 
     return (
-        <Flex width="full" height={"100vh"} alignContent={"center"} justifyContent={"center"}>
-            <Center>
-                <Box maxWidth="500px" border='1px' borderRadius='8' p={10} boxShadow="lg">
-                    <Box textAlign="center">
-                        <Heading as="h3" size='lg'>Login</Heading>
+        <>
+            <Box boxShadow='base' py={3} width="100%" zIndex="10" position="fixed" top="0" bg="white">
+                <Flex alignItems={'center'} justifyContent={'space-around'}>
+                    <Box>
+                        <ChakraLink as={ReactRouterLink} _hover={{ textDecoration: 'none' }} to="/"><Heading as='h2' size='xl' >RESHIRAM</Heading></ChakraLink>
                     </Box>
-                    <Box my={6} mx={4} textAlign="left">
-                        <form>
-                            <FormControl id="username" mb={3}>
-                                <FormLabel>Usuário</FormLabel>
-                                <Input
-                                    focusBorderColor='black'
-                                    name="username"
-                                    className="form-control"
-                                    type="text"
-                                    onChange={onChange}
-                                />
-                            </FormControl>
-                            <FormControl id="password" mb={6}>
-                                <FormLabel>Senha</FormLabel>
-                                <Input
-                                    focusBorderColor='black'
-                                    name="password"
-                                    className="form-control"
-                                    type="password"
-                                    onChange={onChange}
-                                />
-                            </FormControl>
+                </Flex>
+            </Box>
 
-                            {apiError && (
-                                <Alert status='error' borderRadius={8} mb={4}>
-                                    <AlertIcon />
-                                    <AlertDescription>{apiError}</AlertDescription>
-                                </Alert>
-                            )}
-                            {apiSuccess && (
-                                <Alert status='success' borderRadius={8} mb={4}>
-                                    <AlertIcon />
-                                    <AlertDescription>{apiSuccess}</AlertDescription>
-                                </Alert>
-                            )}
 
-                            <ButtonWithProgress
-                                onClick={onClickLogin}
-                                disabled={pendingApiCall}
-                                pendingApiCall={pendingApiCall}
-                                text="Entrar">
-                            </ButtonWithProgress >
-                        </form>
-                        <Box mt={4} textAlign="center">
-                            <ChakraLink as={ReactRouterLink} to="/signup">Novo na RESHIRAM? Cadastre-se</ChakraLink>
+            <Flex width="full" height={"100vh"} alignContent={"center"} justifyContent={"center"}>
+                <Center>
+                    <Box maxWidth="500px" border='1px' borderRadius='8' p={10} boxShadow="lg">
+                        <Box textAlign="center">
+                            <Heading as="h3" size='lg'>Login</Heading>
+                        </Box>
+                        <Box my={6} mx={4} textAlign="left">
+                            <form>
+                                <FormControl id="username" mb={3}>
+                                    <FormLabel>Usuário</FormLabel>
+                                    <Input
+                                        focusBorderColor='black'
+                                        name="username"
+                                        className="form-control"
+                                        type="text"
+                                        onChange={onChange}
+                                    />
+                                </FormControl>
+                                <FormControl id="password" mb={6}>
+                                    <FormLabel>Senha</FormLabel>
+                                    <Input
+                                        focusBorderColor='black'
+                                        name="password"
+                                        className="form-control"
+                                        type="password"
+                                        onChange={onChange}
+                                    />
+                                </FormControl>
+
+                                {apiError && (
+                                    <Alert status='error' borderRadius={8} mb={4}>
+                                        <AlertIcon />
+                                        <AlertDescription>{apiError}</AlertDescription>
+                                    </Alert>
+                                )}
+                                {apiSuccess && (
+                                    <Alert status='success' borderRadius={8} mb={4}>
+                                        <AlertIcon />
+                                        <AlertDescription>{apiSuccess}</AlertDescription>
+                                    </Alert>
+                                )}
+
+                                <ButtonWithProgress
+                                    onClick={onClickLogin}
+                                    disabled={pendingApiCall}
+                                    pendingApiCall={pendingApiCall}
+                                    text="Entrar">
+                                </ButtonWithProgress >
+                            </form>
+                            <Box mt={4} textAlign="center">
+                                <ChakraLink as={ReactRouterLink} to="/signup">Novo na RESHIRAM? Cadastre-se</ChakraLink>
+                            </Box>
                         </Box>
                     </Box>
-                </Box>
-            </Center>
-        </Flex>
+                </Center>
+            </Flex>
+        </>
+
     );
 }

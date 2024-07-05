@@ -5,7 +5,7 @@ const CATEGORIES_URL = "/categories";
 const findAll = async (): Promise<any> => {
     let response;
     try {
-        response = await api.get(`${"/CATEGORIES_URL"}`);
+        response = await api.get(`${CATEGORIES_URL}`);
     } catch (error: any) {
         response = error.response;
     }
@@ -25,6 +25,6 @@ const findById = async (id: number): Promise<any> => {
 const CategoryService = {
     findAll,
     findById
-  };
-  
-  export default CategoryService;
+};
+
+export default CategoryService;
