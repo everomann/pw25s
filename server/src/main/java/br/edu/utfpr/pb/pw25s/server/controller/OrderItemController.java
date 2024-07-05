@@ -18,8 +18,8 @@ public class OrderItemController extends CrudController<OrderItem, OrderItemDTO,
     public OrderItemController(IOrderItemService orderItemService, ModelMapper modelMapper){
 
         super(OrderItem.class, OrderItemDTO.class);
-        OrderItemController.orderItemService = orderItemService;
-        OrderItemController.modelMapper = modelMapper;
+        this.orderItemService = orderItemService;
+        this.modelMapper = modelMapper;
     }
 
     @Override

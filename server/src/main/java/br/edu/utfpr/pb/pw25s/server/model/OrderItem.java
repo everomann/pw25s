@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.pw25s.server.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -30,10 +31,11 @@ public class OrderItem {
     private BigDecimal price;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    @JsonIgnore
+    @JoinColumn(name = "order_id")
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    @JoinColumn(name = "product_id")
     private Product product;
 }

@@ -36,8 +36,8 @@ public class Product {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private List<ProductImage> images =  new ArrayList<>();
+//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+//    private List<ProductImage> images =  new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
